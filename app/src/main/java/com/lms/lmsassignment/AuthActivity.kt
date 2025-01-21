@@ -30,6 +30,7 @@ class AuthActivity : AppCompatActivity() {
         executor = ContextCompat.getMainExecutor(this)
 
 
+
         if (!isBiometricSupported()) return
         if (goToHome()){
             sharedPrefManager.clearSessionData()
