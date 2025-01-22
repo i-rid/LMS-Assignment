@@ -10,14 +10,15 @@
 
 
     <com.google.android.material.tabs.TabLayout
+        android:background="@color/lms_primary"
         android:id="@+id/tab_layout"
         android:clickable="true"
         android:focusable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorColor="#673AB7"
-        app:tabSelectedTextColor="#673AB7"
-        app:tabTextColor="@color/black" />
+        app:tabIndicatorColor="#acc44c"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="#CDC5C5" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"

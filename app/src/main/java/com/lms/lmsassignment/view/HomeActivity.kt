@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -26,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_primary)
         sharedPrefManager = SharedPrefManager(this)
         setupLogoutButton()
 
@@ -40,6 +42,7 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
 
         sharedViewModel =  ViewModelProvider(this)[LMSViewModel::class.java]
+        sharedViewModel.getSummary()
         sharedViewModel.getBattingList()
         sharedViewModel.getBowlingList()
     }

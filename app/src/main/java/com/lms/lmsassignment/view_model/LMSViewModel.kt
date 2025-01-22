@@ -12,6 +12,9 @@ import kotlinx.coroutines.launch
 
 class LMSViewModel:ViewModel() {
 
+    private val _summary = MutableLiveData<AppUiState>(AppUiState.Loading)
+    val summary: LiveData<AppUiState> = _summary
+
     private var _battingList = MutableLiveData<AppUiState>(AppUiState.Loading)
     val battingList: LiveData<AppUiState> = _battingList
 
@@ -19,6 +22,17 @@ class LMSViewModel:ViewModel() {
     val bowlingList: LiveData<AppUiState> = _bowlingList
 
     private val apiService: ApiService = ApiService.RetrofitInstance.api
+
+    fun getSummary(teamId: Int = Const.BOWLING_TEAM_ID) {
+        viewModelScope.launch {
+            try {
+                val response = apiService.getSummary(teamId)
+                _summary.value = AppUiState.Loaded(response)
+            } catch (e: Exception) {
+                _summary.value = AppUiState.Error("An error occurred: ${e.message}")
+            }
+        }
+    }
 
     fun getBattingList(
         typeId: Int = Const.BATTING_TYPE_ID,

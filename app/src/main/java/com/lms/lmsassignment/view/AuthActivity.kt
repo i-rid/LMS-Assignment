@@ -2,11 +2,13 @@ package com.lms.lmsassignment.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.lms.lmsassignment.R
 import com.lms.lmsassignment.databinding.ActivityMainBinding
 import com.lms.lmsassignment.utils.Const
 import com.lms.lmsassignment.utils.SharedPrefManager
@@ -25,6 +27,7 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_primary)
         sharedPrefManager = SharedPrefManager(this)
         executor = ContextCompat.getMainExecutor(this)
 
@@ -86,9 +89,9 @@ class AuthActivity : AppCompatActivity() {
             .build()
 
         binding.btnLogin.setOnClickListener {
+            biometricPrompt.authenticate(promptInfo)
             /** uncomment for auth prompt */
-//            biometricPrompt.authenticate(promptInfo)
-            navigateToHome()
+//            navigateToHome()
         }
     }
 

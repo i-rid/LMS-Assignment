@@ -2,6 +2,7 @@ package com.lms.lmsassignment.data.remote.api
 
 import com.lms.lmsassignment.data.model.BattingResponse
 import com.lms.lmsassignment.data.model.BowlingResponse
+import com.lms.lmsassignment.data.model.SummaryResponse
 import com.lms.lmsassignment.utils.Const.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,6 +13,9 @@ import retrofit2.http.Query
 
 
 interface ApiService {
+
+    @GET("GetWorldTeamProfileSummery")
+    suspend fun getSummary(@Query("teamId") teamId: Int): SummaryResponse
 
     @GET("GetWorldTeamProfile")
     suspend fun getBattingList(

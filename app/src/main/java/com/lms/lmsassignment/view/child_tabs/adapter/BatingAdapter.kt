@@ -47,4 +47,11 @@ class BattingAdapter : ListAdapter<BattingResponse, BattingAdapter.BattingViewHo
             return oldItem == newItem
         }
     }
+
+    private var showFormerPlayers = true  // Default is true to show all players.
+    fun setShowFormerPlayers(show: Boolean) {
+        showFormerPlayers = show
+        submitList(currentList)  // Re-submit the list to apply the filter.
+    }
+
 }
