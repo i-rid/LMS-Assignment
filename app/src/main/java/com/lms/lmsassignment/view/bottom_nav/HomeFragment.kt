@@ -1,15 +1,13 @@
-package com.lms.lmsassignment.bottom_nav
+package com.lms.lmsassignment.view.bottom_nav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.lms.lmsassignment.R
 import com.lms.lmsassignment.databinding.FragmentHomeBinding
+import com.lms.lmsassignment.view.parent_tabs.ParentTabAdapter
 
 
 class HomeFragment : Fragment() {
@@ -28,7 +26,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val adapter = TabAAdapter(requireActivity())
+        val adapter = ParentTabAdapter(requireActivity())
         binding.viewPager.adapter = adapter
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->

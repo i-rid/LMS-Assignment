@@ -1,28 +1,25 @@
-package com.lms.lmsassignment
+package com.lms.lmsassignment.view
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.lms.lmsassignment.R
 import com.lms.lmsassignment.databinding.ActivityHomeBinding
+import com.lms.lmsassignment.utils.Const
+import com.lms.lmsassignment.utils.SharedPrefManager
+import com.lms.lmsassignment.view_model.LMSViewModel
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var sharedPrefManager: SharedPrefManager
     private var logOutPressed = false
+    private lateinit var sharedViewModel : LMSViewModel
 
-    companion object {
-        private const val SESSION_TIMEOUT = 10 * 1000L // 120 seconds in milliseconds
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +39,9 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNav.setupWithNavController(navController)
 
+        sharedViewModel =  ViewModelProvider(this)[LMSViewModel::class.java]
+        sharedViewModel.getBattingList()
+        sharedViewModel.getBowlingList()
     }
 
     private fun setupLogoutButton() {
@@ -86,7 +86,7 @@ class HomeActivity : AppCompatActivity() {
             return false // No timestamp found, assume session is still valid
         }
         val currentTime = System.currentTimeMillis()
-        return (currentTime - lastActiveTime) > SESSION_TIMEOUT
+        return (currentTime - lastActiveTime) > Const.SESSION_TIMEOUT
     }
 
     private fun logOutUser() {

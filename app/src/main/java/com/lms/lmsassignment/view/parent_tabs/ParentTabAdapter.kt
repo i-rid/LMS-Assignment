@@ -1,10 +1,10 @@
-package com.lms.lmsassignment.bottom_nav
+package com.lms.lmsassignment.view.parent_tabs
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class TabAAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class ParentTabAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     private val fragmentList = listOf(
         FeaturedFragment(),

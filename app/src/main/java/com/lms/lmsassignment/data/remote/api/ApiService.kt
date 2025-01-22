@@ -1,5 +1,8 @@
-package com.lms.lmsassignment
+package com.lms.lmsassignment.data.remote.api
 
+import com.lms.lmsassignment.data.model.BattingResponse
+import com.lms.lmsassignment.data.model.BowlingResponse
+import com.lms.lmsassignment.utils.Const.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -7,15 +10,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val BASE_URL = "https://dummyjson.com"
 
 interface ApiService {
 
-    @GET("posts")
-    suspend fun getPosts(
-        @Query("limit") limit: Int,
-        @Query("skip") skip: Int
-    ): Boolean
+    @GET("GetWorldTeamProfile")
+    suspend fun getBattingList(
+        @Query("typeId") typeId: Int,
+        @Query("teamId") teamId: Int
+    ): List<BattingResponse>
+
+    @GET("GetWorldTeamProfile")
+    suspend fun getBowlingList(
+        @Query("typeId") typeId: Int,
+        @Query("teamId") teamId: Int
+    ): List<BowlingResponse>
+
 
     object RetrofitInstance {
         val api: ApiService by lazy {

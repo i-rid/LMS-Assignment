@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.child_tabs.BFragment">
+
+    <LinearLayout
+        android:id="@+id/llFormerPlayers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_marginHorizontal="4dp"
+            android:id="@+id/cbFormerPlayers"
+            android:layout_width="28dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/lms_primary" />
+
+        <TextView
+            android:id="@+id/tvFormerPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="SHOW FORMER PLAYERS"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/lms_small_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingHorizontal="8dp"
+        android:gravity="center"
+        android:background="@color/lms_primary_bg"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Innings -->
+        <TextView
+            android:id="@+id/tvInnings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Inngs"
+            android:textColor="@color/lms_primary"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Runs -->
+        <TextView
+            android:id="@+id/tvRuns"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Runs"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Average -->
+        <TextView
+            android:id="@+id/tvAvg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Avg"
+            android:textColor="@color/lms_primary"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Strike Rate -->
+        <TextView
+            android:id="@+id/tvSR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SR"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- High Score -->
+        <TextView
+            android:id="@+id/tvHS"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="HS"
+            android:textColor="@color/lms_primary"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- 50s -->
+        <TextView
+            android:id="@+id/tv50s"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="50s"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- National Rank -->
+        <TextView
+            android:id="@+id/tvNationalRank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nat'l Rnk"
+            android:textColor="@color/lms_primary"
+            android:textSize="11sp" />
+
+        <!-- World Rank -->
+        <TextView
+            android:id="@+id/tvWorldRank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wrld Rnk"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBatting"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_batting"
+        android:nestedScrollingEnabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

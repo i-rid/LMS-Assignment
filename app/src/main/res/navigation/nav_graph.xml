@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.lms.lmsassignment.bottom_nav.HomeFragment"
+        android:name="com.lms.lmsassignment.view.bottom_nav.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.lms.lmsassignment.bottom_nav.ProfileFragment"
+        android:name="com.lms.lmsassignment.view.bottom_nav.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/myLMSFragment"
-        android:name="com.lms.lmsassignment.bottom_nav.MyLMSFragment"
+        android:name="com.lms.lmsassignment.view.bottom_nav.MyLMSFragment"
         android:label="My LMS"
         tools:layout="@layout/fragment_my_l_m_s" />
 

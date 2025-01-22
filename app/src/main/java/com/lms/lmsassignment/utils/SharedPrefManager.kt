@@ -1,4 +1,4 @@
-package com.lms.lmsassignment
+package com.lms.lmsassignment.utils
 
 import android.content.Context
 import android.content.SharedPreferences

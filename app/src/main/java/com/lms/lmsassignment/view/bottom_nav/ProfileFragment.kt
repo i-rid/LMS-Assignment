@@ -1,4 +1,4 @@
-package com.lms.lmsassignment.bottom_nav
+package com.lms.lmsassignment.view.bottom_nav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.lms.lmsassignment.R
 
 
-class ProFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,8 @@ class ProFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pro, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
+
 
 }

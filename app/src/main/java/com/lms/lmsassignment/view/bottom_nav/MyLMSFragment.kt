@@ -1,4 +1,4 @@
-package com.lms.lmsassignment.bottom_nav
+package com.lms.lmsassignment.view.bottom_nav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

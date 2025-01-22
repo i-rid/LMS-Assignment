@@ -3,5 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="selector_bottom_nav">#FFFFFFFF</color>
-
+    <color name="lms_primary">#008977</color>
+    <color name="lms_primary_bg">#0c3539</color>
+    <color name="batting_item_text_odd">#25494d</color>
+    <color name="batting_item_text_even">#1a9585</color>
 </resources>

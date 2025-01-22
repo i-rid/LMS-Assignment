@@ -1,4 +1,4 @@
-package com.lms.lmsassignment
+package com.lms.lmsassignment.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,8 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.lms.lmsassignment.databinding.ActivityMainBinding
+import com.lms.lmsassignment.utils.Const
+import com.lms.lmsassignment.utils.SharedPrefManager
 import java.util.concurrent.Executor
 
 class AuthActivity : AppCompatActivity() {
@@ -17,9 +19,6 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var sharedPrefManager: SharedPrefManager
 
-    companion object {
-        private const val SESSION_TIMEOUT = 10 * 1000L // 120 seconds in milliseconds
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,6 +119,6 @@ class AuthActivity : AppCompatActivity() {
 
         val currentTime = System.currentTimeMillis()
 
-        return (currentTime - lastActiveTime) <= SESSION_TIMEOUT
+        return (currentTime - lastActiveTime) <= Const.SESSION_TIMEOUT
     }
 }

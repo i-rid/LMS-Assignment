@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:paddingHorizontal="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <!-- Name (Odd) -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLength="5"
+            android:text="Name"
+            android:textColor="@color/batting_item_text_odd"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Overs (Even) -->
+        <TextView
+            android:id="@+id/tvOvers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Overs"
+            android:textColor="@color/batting_item_text_even"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Wickets (Odd) -->
+        <TextView
+            android:id="@+id/tvWickets"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wkts"
+            android:textColor="@color/batting_item_text_odd"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Average (Even) -->
+        <TextView
+            android:id="@+id/tvAvg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Avg"
+            android:textColor="@color/batting_item_text_even"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Economy (Odd) -->
+        <TextView
+            android:id="@+id/tvEco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Eco"
+            android:textColor="@color/batting_item_text_odd"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- Best (Even) -->
+        <TextView
+            android:id="@+id/tvBest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Best"
+            android:textColor="@color/batting_item_text_even"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- 3fa (Odd) -->
+        <TextView
+            android:id="@+id/tv3fa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="3fa"
+            android:textColor="@color/batting_item_text_odd"
+            android:textSize="@dimen/lms_small_text" />
+
+        <!-- National Rank (Even) -->
+        <TextView
+            android:id="@+id/tvNationalRank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nat'l Rnk"
+            android:textColor="@color/batting_item_text_even"
+            android:textSize="11sp" />
+
+        <!-- World Rank (Odd) -->
+        <TextView
+            android:id="@+id/tvWorldRank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wrld Rnk"
+            android:textColor="@color/batting_item_text_odd"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
