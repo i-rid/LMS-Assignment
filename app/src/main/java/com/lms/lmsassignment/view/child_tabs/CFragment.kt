@@ -12,6 +12,8 @@ import com.lms.lmsassignment.data.model.BattingResponse
 import com.lms.lmsassignment.data.model.BowlingResponse
 import com.lms.lmsassignment.databinding.FragmentCBinding
 import com.lms.lmsassignment.utils.AppUiState
+import com.lms.lmsassignment.utils.gone
+import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.BowlingAdapter
 import com.lms.lmsassignment.view_model.LMSViewModel
 
@@ -38,6 +40,7 @@ class CFragment : Fragment() {
         viewModel.bowlingList.observe(viewLifecycleOwner){
             when(it){
                 is AppUiState.Loading -> {
+                    binding.progressBar.visible()
                     Log.d("BFragment", "Loading..")
                 }
                 is AppUiState.Loaded -> {
@@ -47,9 +50,10 @@ class CFragment : Fragment() {
                     bowlingAdapter.submitList(data)
 
                     Log.d("BFragment", "Loaded..${data}")
-
+                    binding.progressBar.gone()
                 }
                 is AppUiState.Error -> {
+                    binding.progressBar.gone()
                     Log.d("BFragment", "Error..")
                     Log.d("BFragment", "Error ${it.message}")
                 }

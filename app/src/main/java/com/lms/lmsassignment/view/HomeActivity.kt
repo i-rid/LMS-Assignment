@@ -2,6 +2,7 @@ package com.lms.lmsassignment.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -9,7 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.lms.lmsassignment.R
+import com.lms.lmsassignment.data.model.SummaryResponse
+import com.lms.lmsassignment.data.model.TeamAndSponsor
 import com.lms.lmsassignment.databinding.ActivityHomeBinding
+import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.Const
 import com.lms.lmsassignment.utils.SharedPrefManager
 import com.lms.lmsassignment.view_model.LMSViewModel

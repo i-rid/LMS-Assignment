@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,35 +9,154 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <include
+                android:id="@+id/layoutBigCards"
+                layout="@layout/layout_big_cards"
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@color/lms_primary"/>
+                android:layout_height="300dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-            <ImageView
+            <include
+                android:id="@+id/layoutSmallCards"
+                layout="@layout/layout_small_cards"
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@color/white"/>
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@color/lms_primary"/>
+                android:layout_height="wrap_content"
+                android:background="@color/lms_primary"
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@color/white"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <ImageView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:text="SQUAD"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:text="LIST"
+                        android:textColor="@color/lms_primary_bg"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSquadList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/item_squad" />
+
+                    <ProgressBar
+                        android:id="@+id/squadProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:progressTint="@color/lms_primary" />
+                </FrameLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white"
+                    android:text="VIEW ALL ->"
+                    android:textColor="@color/black"
+                    app:cornerRadius="4dp"
+                    app:strokeColor="#FFF14040"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:src="@color/lms_primary"/>
+                android:layout_height="wrap_content"
+                android:background="#D0D0D0"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginStart="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:text="RECENT"
+                        android:textColor="@color/lms_primary_bg"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_marginStart="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:text="VIDEOS"
+                        android:textColor="@color/lms_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvVideos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_video" />
+
+                    <ProgressBar
+                        android:id="@+id/videoProgressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:progressTint="@color/lms_primary" />
+                </FrameLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white"
+                    android:text="VIEW MORE ->"
+                    android:textColor="@color/black"
+                    app:cornerRadius="4dp"
+                    app:strokeColor="#FFF14040"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

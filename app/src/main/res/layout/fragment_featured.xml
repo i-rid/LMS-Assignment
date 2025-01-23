@@ -27,25 +27,30 @@
 
                 <!-- Image -->
                 <ImageView
-                    android:id="@+id/image1"
+                    android:id="@+id/ivTeam"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="start"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/lms" />
+                    android:scaleType="fitCenter"
+                    tools:src="@drawable/lms" />
 
                 <TextView
-                    android:id="@+id/name1"
+                    android:id="@+id/tvTeamName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Team Name"
+                    tools:text="Team Name"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <ProgressBar
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <!-- Second Block -->
             <LinearLayout
                 android:layout_width="0dp"
@@ -56,22 +61,22 @@
 
                 <!-- Image -->
                 <ImageView
-                    android:id="@+id/image2"
+                    android:id="@+id/ivTeamSponsor"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="end"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/lms"/>
+                    android:scaleType="fitCenter"
+                    tools:src="@drawable/lms"/>
 
                 <!-- Name -->
                 <TextView
-                    android:id="@+id/name2"
+                    android:id="@+id/tvSponsorName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Team Sponsor"
+                    tools:text="Team Sponsor"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>

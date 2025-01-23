@@ -10,6 +10,8 @@ import androidx.fragment.app.activityViewModels
 import com.lms.lmsassignment.data.model.BattingResponse
 import com.lms.lmsassignment.databinding.FragmentBBinding
 import com.lms.lmsassignment.utils.AppUiState
+import com.lms.lmsassignment.utils.gone
+import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.BattingAdapter
 import com.lms.lmsassignment.view_model.LMSViewModel
 
@@ -52,17 +54,20 @@ class BFragment : Fragment() {
             when(it){
                 is AppUiState.Loading -> {
                     Log.d("BFragment", "Loading..")
+                    binding.progressBar.visible()
                 }
                 is AppUiState.Loaded -> {
+
                     Log.d("BFragment", "Loaded..")
 
                     val data = it.data as List<BattingResponse>
 
                     battingAdapter.submitList(data)
                     Log.d("BFragment", "Loaded..${data[0].UserName}")
-
+                    binding.progressBar.gone()
                 }
                 is AppUiState.Error -> {
+                    binding.progressBar.gone()
                     Log.d("BFragment", "Error..")
                     Log.d("BFragment", "Error ${it.message}")
                 }
