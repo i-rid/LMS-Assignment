@@ -89,9 +89,9 @@ class AuthActivity : AppCompatActivity() {
             .build()
 
         binding.btnLogin.setOnClickListener {
-            biometricPrompt.authenticate(promptInfo)
             /** uncomment for auth prompt */
-//            navigateToHome()
+//            biometricPrompt.authenticate(promptInfo)
+            navigateToHome()
         }
     }
 

@@ -5,15 +5,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.lms.lmsassignment.data.model.BatsmenBowlersAllRounders
+import com.lms.lmsassignment.data.model.SummaryResponse
+import com.lms.lmsassignment.data.model.parseBatsmenBowlersAllRounders
+import com.lms.lmsassignment.data.model.parseRankAndForms
+import com.lms.lmsassignment.data.model.parseRecentVideos
+import com.lms.lmsassignment.data.model.parseTeamAndSponsor
+import com.lms.lmsassignment.data.model.parseWinsAndLoses
 import com.lms.lmsassignment.data.remote.api.ApiService
 import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.Const
 import kotlinx.coroutines.launch
+import okhttp3.internal.toImmutableList
 
 class LMSViewModel:ViewModel() {
 
     private val _summary = MutableLiveData<AppUiState>(AppUiState.Loading)
     val summary: LiveData<AppUiState> = _summary
+
+    private val _squadList = MutableLiveData<AppUiState>(AppUiState.Loading)
+    val squadList: LiveData<AppUiState> = _squadList
 
     private var _battingList = MutableLiveData<AppUiState>(AppUiState.Loading)
     val battingList: LiveData<AppUiState> = _battingList
@@ -26,10 +37,50 @@ class LMSViewModel:ViewModel() {
     fun getSummary(teamId: Int = Const.BOWLING_TEAM_ID) {
         viewModelScope.launch {
             try {
-                val response = apiService.getSummary(teamId)
-                _summary.value = AppUiState.Loaded(response)
+                val response = apiService.getSummary(teamId).string()
+                Log.d("SumNCall", "SumNetCallRaw $response")
+                val teamAndSponsor = parseTeamAndSponsor(response)
+                val winsAndLoses = parseWinsAndLoses(response)
+                val rankAndForms = parseRankAndForms(response)
+                val batsmenBowlersAllRounders = parseBatsmenBowlersAllRounders(response)
+                val recentVideosList = parseRecentVideos(response)
+
+//                Log.d("SumNCall", "Team $teamAndSponsor")
+//                Log.d("SumNCall", "Wins $winsAndLoses")
+//                Log.d("SumNCall", "Rank $rankAndForms")
+//                Log.d("SumNCall", "bbar $batsmenBowlersAllRounders")
+//                Log.d("SumNCall", "rVid $recentVideosList")
+
+                val summaryResponse = SummaryResponse(
+                    teamAndSponsor,
+                    winsAndLoses,
+                    rankAndForms,
+                    batsmenBowlersAllRounders.first.toList(),
+                    batsmenBowlersAllRounders.second.toList(),
+                    batsmenBowlersAllRounders.third.toList(),
+                    recentVideosList.toList()
+                )
+
+                _summary.value = AppUiState.Loaded(summaryResponse)
             } catch (e: Exception) {
                 _summary.value = AppUiState.Error("An error occurred: ${e.message}")
+            }
+        }
+    }
+
+    fun getSquadList(
+        typeId: Int = Const.SQUAD_TYPE_ID,
+        teamId: Int = Const.SQUAD_TEAM_ID
+    ){
+        _squadList.value = AppUiState.Loading
+        viewModelScope.launch {
+            try {
+                val response = apiService.getSquadList(typeId, teamId)
+                _squadList.value = AppUiState.Loaded(response)
+                Log.d("SquadNetCall","SquadNetCall: ${response[0].UserName}")
+            } catch (e: Exception){
+                _squadList.value = AppUiState.Error(e.message ?: "Unknown Error")
+                Log.d("SquadNetCall","Error: ${e.message}")
             }
         }
     }

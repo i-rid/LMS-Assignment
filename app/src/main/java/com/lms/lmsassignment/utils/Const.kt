@@ -6,6 +6,8 @@ object Const {
     const val BASE_URL = "https://newstagingshopapi.lastmanstands.com/"
     const val BATTING_TYPE_ID = 1
     const val BOWLING_TYPE_ID = 2
+    const val SQUAD_TYPE_ID   = 1
     const val BATTING_TEAM_ID = 7027
     const val BOWLING_TEAM_ID = 7027
+    const val SQUAD_TEAM_ID   = 7027
 }

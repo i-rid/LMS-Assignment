@@ -30,7 +30,8 @@
         android:backgroundTint="@color/white"
         android:textColor="@color/lms_primary"
         android:id="@+id/btnLogin"
+        android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login with Fingerprint" />
+        android:text="LOG IN" />
 </LinearLayout>

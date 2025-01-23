@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.lms.lmsassignment.R
+import com.lms.lmsassignment.data.model.SquadResponse
 import com.lms.lmsassignment.data.model.SummaryResponse
+import com.lms.lmsassignment.data.model.TeamAndSponsor
 import com.lms.lmsassignment.databinding.FragmentABinding
 import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.view_model.LMSViewModel
@@ -32,18 +34,37 @@ class AFragment : Fragment() {
         viewModel.summary.observe(viewLifecycleOwner){
             when(it){
                 is AppUiState.Loading -> {
-                    Log.d("AFragment", "Loading..")
+                    Log.d("AFragment", "Loading..SumNCall")
 
                 }
                 is AppUiState.Loaded -> {
-                    Log.d("AFragment", "Loaded..")
+                    Log.d("AFragment", "Loaded..SumNCall")
                     val data = it.data as SummaryResponse
-                    Log.d("SumNetCall", "${data.description}")
+                    Log.d("SumNCall", "FinSumRes ${data}")
+
                 }
                 is AppUiState.Error -> {
-                    Log.d("AFragment", "Error..")
+                    Log.d("AFragment", "Error..SumNCall")
                     Log.d("AFragment", "E ${it.message}")
 
+                }
+            }
+        }
+        viewModel.squadList.observe(viewLifecycleOwner){
+            when(it){
+                is AppUiState.Loading ->{
+                    Log.d("AFragment","Loading..Squad")
+                }
+                is AppUiState.Loaded ->{
+                    Log.d("AFragment","Loaded..Squad")
+
+                    val data = it.data as List<SquadResponse>
+                    Log.d("AFragment","Loaded..Squad ${data[0].UserName}")
+
+                }
+                is AppUiState.Error ->{
+                    Log.d("AFragment","Error..Squad")
+                    Log.d("AFragment","Error..${it.message}")
                 }
             }
         }

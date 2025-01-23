@@ -43,6 +43,7 @@ class HomeActivity : AppCompatActivity() {
 
         sharedViewModel =  ViewModelProvider(this)[LMSViewModel::class.java]
         sharedViewModel.getSummary()
+        sharedViewModel.getSquadList()
         sharedViewModel.getBattingList()
         sharedViewModel.getBowlingList()
     }
