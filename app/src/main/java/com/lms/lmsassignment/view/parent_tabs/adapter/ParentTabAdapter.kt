@@ -1,8 +1,10 @@
-package com.lms.lmsassignment.view.parent_tabs
+package com.lms.lmsassignment.view.parent_tabs.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.lms.lmsassignment.view.parent_tabs.FeaturedFragment
+import com.lms.lmsassignment.view.parent_tabs.ProFragment
 
 class ParentTabAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 

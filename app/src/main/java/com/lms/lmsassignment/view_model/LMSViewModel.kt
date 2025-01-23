@@ -45,11 +45,6 @@ class LMSViewModel:ViewModel() {
                 val batsmenBowlersAllRounders = parseBatsmenBowlersAllRounders(response)
                 val recentVideosList = parseRecentVideos(response)
 
-//                Log.d("SumNCall", "Team $teamAndSponsor")
-//                Log.d("SumNCall", "Wins $winsAndLoses")
-//                Log.d("SumNCall", "Rank $rankAndForms")
-//                Log.d("SumNCall", "bbar $batsmenBowlersAllRounders")
-//                Log.d("SumNCall", "rVid $recentVideosList")
 
                 val summaryResponse = SummaryResponse(
                     teamAndSponsor,

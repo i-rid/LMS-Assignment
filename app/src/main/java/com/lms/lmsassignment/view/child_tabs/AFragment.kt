@@ -29,7 +29,6 @@ class AFragment : Fragment() {
     private val viewModel: LMSViewModel by activityViewModels()
     private val squadAdapter: SquadAdapter by lazy { SquadAdapter() }
     private val videoAdapter: VideoAdapter by lazy { VideoAdapter() }
-    private lateinit var topPlayersAdapter: TopPlayersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
