@@ -97,7 +97,7 @@
                     android:id="@+id/btnSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/lms_primary"
+                    android:backgroundTint="@color/lms_primary_bg"
                     android:text="@string/summary"
                     app:cornerRadius="8dp" />
 

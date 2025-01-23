@@ -19,6 +19,7 @@ import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.gone
 import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.SquadAdapter
+import com.lms.lmsassignment.view.child_tabs.adapter.TopPlayersAdapter
 import com.lms.lmsassignment.view.child_tabs.adapter.VideoAdapter
 import com.lms.lmsassignment.view_model.LMSViewModel
 
@@ -28,6 +29,7 @@ class AFragment : Fragment() {
     private val viewModel: LMSViewModel by activityViewModels()
     private val squadAdapter: SquadAdapter by lazy { SquadAdapter() }
     private val videoAdapter: VideoAdapter by lazy { VideoAdapter() }
+    private lateinit var topPlayersAdapter: TopPlayersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +53,7 @@ class AFragment : Fragment() {
                     binding.layoutBigCards.root.gone()
                     binding.layoutSmallCards.root.gone()
                     binding.videoProgressBar.visible()
+                    binding.playersProgressBar.visible()
                     Log.d("AFragment", "Loading..SumNCall")
 
                 }
@@ -62,12 +65,23 @@ class AFragment : Fragment() {
                     setupWinsAndLosses(data.winsAndLoses)
                     setupRankAndForms(data.rankAndForms)
                     videoAdapter.submitList(data.recentVideosList)
+
+                    val topPlayersAdapter = TopPlayersAdapter(
+                        data.batsmenList,
+                        data.bowlersList,
+                        data.allRoundersList
+                    )
+                    binding.rvTopPlayers.adapter = topPlayersAdapter
+                    binding.rvTopPlayers.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+
                     binding.videoProgressBar.gone()
+                    binding.playersProgressBar.gone()
                 }
                 is AppUiState.Error -> {
                     binding.layoutBigCards.root.gone()
                     binding.layoutSmallCards.root.gone()
                     binding.videoProgressBar.gone()
+                    binding.playersProgressBar.gone()
                     Log.d("AFragment", "Error..SumNCall")
                     Log.d("AFragment", "E ${it.message}")
 

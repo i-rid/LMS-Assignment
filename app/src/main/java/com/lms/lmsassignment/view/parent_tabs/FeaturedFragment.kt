@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import coil.load
 import com.lms.lmsassignment.R
@@ -33,11 +35,28 @@ class FeaturedFragment : Fragment() {
         val childTabAdapter = ChildTabAdapter(this)
         binding.viewPager.adapter = childTabAdapter
 
-        binding.btnSummary.setOnClickListener{ binding.viewPager.currentItem = 0}
-        binding.btnBatting.setOnClickListener { binding.viewPager.currentItem = 1 }
-        binding.btnBowling.setOnClickListener { binding.viewPager.currentItem = 2 }
+        binding.btnSummary.setOnClickListener {
+            binding.viewPager.currentItem = 0
+            setButtonColor(binding.btnSummary, binding.btnBatting, binding.btnBowling)
+        }
+
+        binding.btnBatting.setOnClickListener {
+            binding.viewPager.currentItem = 1
+            setButtonColor(binding.btnBatting, binding.btnSummary, binding.btnBowling)
+        }
+
+        binding.btnBowling.setOnClickListener {
+            binding.viewPager.currentItem = 2
+            setButtonColor(binding.btnBowling, binding.btnSummary, binding.btnBatting)
+        }
 
         return  binding.root
+    }
+
+    fun setButtonColor(selected: Button, unselected1: Button, unselected2: Button) {
+        selected.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary_bg))
+        unselected1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary))
+        unselected2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
