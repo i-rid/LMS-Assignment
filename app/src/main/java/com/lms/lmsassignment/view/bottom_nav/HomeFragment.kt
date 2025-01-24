@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
 import com.lms.lmsassignment.databinding.FragmentHomeBinding
+import com.lms.lmsassignment.view.HomeActivity
 import com.lms.lmsassignment.view.parent_tabs.adapter.ParentTabAdapter
 
 
@@ -33,5 +34,8 @@ class HomeFragment : Fragment() {
             tab.text = adapter.getTabTitle(position)
         }.attach()
 
+        binding.btnLogOut.setOnClickListener {
+            (activity as HomeActivity)?.performLogoutBtnClick()
+        }
     }
 }

@@ -27,7 +27,7 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_primary)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_appbar)
         sharedPrefManager = SharedPrefManager(this)
         executor = ContextCompat.getMainExecutor(this)
 

@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_primary)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.lms_appbar)
         sharedPrefManager = SharedPrefManager(this)
         setupLogoutButton()
 
@@ -58,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
             logOutByUser()
         }
     }
-
+    fun performLogoutBtnClick(){ binding.btnLogOut.performClick() }
 
     override fun onResume() {
         super.onResume()
