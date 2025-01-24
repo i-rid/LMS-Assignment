@@ -39,7 +39,7 @@
     <th>Bowling Tab</th>
   </tr>
   <tr>
-    <td><img src = "ss/auth1.png" width=240/></td> 
+    <td><img src = "ss/auth1.jpeg" width=240/></td> 
     <td><img src = "ss/auth2.png" width=240/></td>
     <td><img src = "ss/batting.png" width=240/></td> 
     <td><img src = "ss/bowling.png" width=240/></td>
