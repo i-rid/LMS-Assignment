@@ -54,7 +54,7 @@
     <th>Top Players</th>
     </tr>
     <tr>
-    <td><img src = "ss/home1.png" width=240/></td> 
+    <td><img src = "ss/home1.jpeg" width=240/></td> 
     <td><img src = "ss/home2.png" width=240/></td> 
     <td><img src = "ss/home3.png" width=240/></td>
     <td><img src = "ss/home4.png" width=240/></td>

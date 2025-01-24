@@ -49,8 +49,8 @@ class AFragment : Fragment() {
         viewModel.summary.observe(viewLifecycleOwner){
             when(it){
                 is AppUiState.Loading -> {
-                    binding.layoutBigCards.root.gone()
-                    binding.layoutSmallCards.root.gone()
+                    binding.layoutBigCards.gone()
+                    binding.layoutSmallCards.gone()
                     binding.videoProgressBar.visible()
                     binding.playersProgressBar.visible()
                     Log.d("AFragment", "Loading..SumNCall")
@@ -77,8 +77,8 @@ class AFragment : Fragment() {
                     binding.playersProgressBar.gone()
                 }
                 is AppUiState.Error -> {
-                    binding.layoutBigCards.root.gone()
-                    binding.layoutSmallCards.root.gone()
+                    binding.layoutBigCards.gone()
+                    binding.layoutSmallCards.gone()
                     binding.videoProgressBar.gone()
                     binding.playersProgressBar.gone()
                     Log.d("AFragment", "Error..SumNCall")
@@ -112,17 +112,25 @@ class AFragment : Fragment() {
     }
 
     private fun setupWinsAndLosses(winsAndLoses: WinsAndLoses) {
-        binding.layoutBigCards.root.visible()
-        binding.layoutBigCards.tvB1.text = winsAndLoses.gamesPlayed.toString()
-        binding.layoutBigCards.tvB2.text = winsAndLoses.WinRatio.toString()
-        binding.layoutBigCards.tvB3.text = winsAndLoses.Wins.toString()
-        binding.layoutBigCards.tvB4.text = winsAndLoses.Loses.toString()
+        binding.layoutBigCards.visible()
+        binding.layoutBigCards1.tvTitle.text = "Matches"
+        binding.layoutBigCards2.tvTitle.text = "Win Ratio"
+        binding.layoutBigCards3.tvTitle.text = "Wins"
+        binding.layoutBigCards4.tvTitle.text = "Loses"
+        binding.layoutBigCards1.tvValue.text = winsAndLoses.gamesPlayed.toString()
+        binding.layoutBigCards2.tvValue.text = winsAndLoses.WinRatio.toString()
+        binding.layoutBigCards3.tvValue.text = winsAndLoses.Wins.toString()
+        binding.layoutBigCards4.tvValue.text = winsAndLoses.Loses.toString()
     }
     private fun setupRankAndForms(rankAndForms: RankAndForms) {
-        binding.layoutSmallCards.root.visible()
-        binding.layoutSmallCards.tvB1.text = rankAndForms.RegionalRank.toString()
-        binding.layoutSmallCards.tvB2.text = rankAndForms.CountryRank.toString()
-        binding.layoutSmallCards.tvB3.text = rankAndForms.WorldRank.toString()
-        binding.layoutSmallCards.tvB4.text = rankAndForms.Form.toString()
+        binding.layoutSmallCards.visible()
+        binding.layoutSmallCards1.tvTitle.text = "City Rank:"
+        binding.layoutSmallCards2.tvTitle.text = "National Rank:"
+        binding.layoutSmallCards3.tvTitle.text = "World Rank:"
+        binding.layoutSmallCards4.tvTitle.text = "Form:"
+        binding.layoutSmallCards1.tvValue.text = rankAndForms.RegionalRank.toString()
+        binding.layoutSmallCards2.tvValue.text = rankAndForms.CountryRank.toString()
+        binding.layoutSmallCards3.tvValue.text = rankAndForms.WorldRank.toString()
+        binding.layoutSmallCards4.tvValue.text = rankAndForms.Form.toString()
     }
 }
