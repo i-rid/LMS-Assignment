@@ -13,6 +13,7 @@ import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.gone
 import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.BattingAdapter
+import com.lms.lmsassignment.view.child_tabs.adapter.DividerItemDecoration
 import com.lms.lmsassignment.view_model.LMSViewModel
 
 class BFragment : Fragment() {
@@ -40,13 +41,14 @@ class BFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvBatting.adapter = battingAdapter
+        binding.rvBatting.addItemDecoration(DividerItemDecoration(requireContext()))
 
 
         binding.cbFormerPlayers.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-
+                binding.ivArrow.visible()
             } else {
-
+                binding.ivArrow.gone()
             }
         }
 
@@ -63,7 +65,7 @@ class BFragment : Fragment() {
                     val data = it.data as List<BattingResponse>
 
                     battingAdapter.submitList(data)
-                    Log.d("BFragment", "Loaded..${data[0].UserName}")
+                    Log.d("BFragment", "Loaded..${data[0].FirstName}")
                     binding.progressBar.gone()
                 }
                 is AppUiState.Error -> {

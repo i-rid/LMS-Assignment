@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lms.lmsassignment.data.model.BatsmenBowlersAllRounders
 import com.lms.lmsassignment.data.model.SummaryResponse
 import com.lms.lmsassignment.data.model.parseBatsmenBowlersAllRounders
 import com.lms.lmsassignment.data.model.parseRankAndForms
@@ -16,7 +15,6 @@ import com.lms.lmsassignment.data.remote.api.ApiService
 import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.Const
 import kotlinx.coroutines.launch
-import okhttp3.internal.toImmutableList
 
 class LMSViewModel:ViewModel() {
 
@@ -89,7 +87,7 @@ class LMSViewModel:ViewModel() {
             try {
                 val response = apiService.getBattingList(typeId, teamId)
                 _battingList.value = AppUiState.Loaded(response)
-                Log.d("BatNetCall","BatNetworkCall: ${response[0].UserName}")
+                Log.d("BatNetCall","BatNetworkCall: ${response[0].FirstName}")
             } catch (e: Exception) {
                 _battingList.value = AppUiState.Error(e.message ?: "Unknown error")
             }

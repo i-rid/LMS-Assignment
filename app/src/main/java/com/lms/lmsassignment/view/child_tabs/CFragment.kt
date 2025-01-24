@@ -15,6 +15,7 @@ import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.gone
 import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.BowlingAdapter
+import com.lms.lmsassignment.view.child_tabs.adapter.DividerItemDecoration
 import com.lms.lmsassignment.view_model.LMSViewModel
 
 class CFragment : Fragment() {
@@ -36,6 +37,15 @@ class CFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvBowling.adapter = bowlingAdapter
+        binding.rvBowling.addItemDecoration(DividerItemDecoration(requireContext()))
+
+        binding.cbFormerPlayers.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                binding.ivArrow.visible()
+            } else {
+                binding.ivArrow.gone()
+            }
+        }
 
         viewModel.bowlingList.observe(viewLifecycleOwner){
             when(it){

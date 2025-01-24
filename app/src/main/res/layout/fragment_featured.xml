@@ -15,137 +15,167 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <!-- Image -->
-                <ImageView
-                    android:id="@+id/ivTeam"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="start"
-                    android:scaleType="fitCenter"
-                    tools:src="@drawable/lms" />
-
-                <TextView
-                    android:id="@+id/tvTeamName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    tools:text="Team Name"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <ProgressBar
-                android:layout_gravity="center"
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <!-- Second Block -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <!-- Image -->
-                <ImageView
-                    android:id="@+id/ivTeamSponsor"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="end"
-                    android:scaleType="fitCenter"
-                    tools:src="@drawable/lms"/>
-
-                <!-- Name -->
-                <TextView
-                    android:id="@+id/tvSponsorName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    tools:text="Team Sponsor"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:background="@drawable/bg_team_sponsor"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
                 android:orientation="horizontal">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnSummary"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <!-- Image -->
+                    <ImageView
+                        android:id="@+id/ivTeam"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitCenter"
+                        tools:src="@drawable/lms" />
+
+                    <TextView
+                        android:id="@+id/tvTeamName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:textColor="@color/lms_primary_bg"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="Team Name" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/lms_primary_bg"
-                    android:text="@string/summary"
-                    app:cornerRadius="8dp" />
-
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBatting"
-                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:progressTint="@color/lms_primary" />
+                <!-- Second Block -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/lms_primary"
-                    android:text="@string/batting"
-                    app:cornerRadius="8dp" />
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBowling"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/lms_primary"
-                    android:text="@string/bowling"
-                    app:cornerRadius="8dp" />
+                    <!-- Image -->
+                    <ImageView
+                        android:id="@+id/ivTeamSponsor"
+                        android:layout_width="150dp"
+                        android:layout_height="115dp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="12dp"
+                        android:scaleType="fitCenter"
+                        tools:src="@drawable/lms" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/lms_primary"
-                    android:text="All Rounder"
-                    app:cornerRadius="8dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/lms_primary"
-                    android:text="Keeping"
-                    app:cornerRadius="8dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="@color/lms_primary"
-                    android:text="Squad"
-                    app:cornerRadius="8dp" />
+                    <!-- Name -->
+                    <TextView
+                        android:id="@+id/tvSponsorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="22dp"
+                        android:gravity="center"
+                        android:textColor="@color/lms_primary_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="Team Sponsor" />
+                </LinearLayout>
             </LinearLayout>
 
-        </HorizontalScrollView>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/lms_primary_bg"
+                        android:paddingHorizontal="12dp"
+                        android:text="@string/summary"
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBatting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/lms_primary"
+                        android:paddingHorizontal="12dp"
+                        android:text="@string/batting"
+
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBowling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/lms_primary"
+                        android:paddingHorizontal="12dp"
+                        android:text="@string/bowling"
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/lms_primary"
+                        android:paddingHorizontal="12dp"
+                        android:text="All Rounder"
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/lms_primary"
+                        android:paddingHorizontal="12dp"
+                        android:text="Keeping"
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/lms_primary"
+                        android:paddingHorizontal="12dp"
+                        android:text="Squad"
+                        android:textSize="14sp"
+                        app:cornerRadius="5dp" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"

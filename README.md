@@ -40,9 +40,9 @@
   </tr>
   <tr>
     <td><img src = "ss/auth1.jpeg" width=240/></td> 
-    <td><img src = "ss/auth2.png" width=240/></td>
-    <td><img src = "ss/batting.png" width=240/></td> 
-    <td><img src = "ss/bowling.png" width=240/></td>
+    <td><img src = "ss/auth2.jpeg" width=240/></td>
+    <td><img src = "ss/batting.jpeg" width=240/></td> 
+    <td><img src = "ss/bowling.jpeg" width=240/></td>
   </tr>
 </table>
 

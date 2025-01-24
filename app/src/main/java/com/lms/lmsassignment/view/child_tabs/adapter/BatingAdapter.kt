@@ -25,7 +25,7 @@ class BattingAdapter : ListAdapter<BattingResponse, BattingAdapter.BattingViewHo
 
         fun bind(item: BattingResponse) {
             binding.apply {
-                tvName.text = item.UserName
+                tvName.text = item.FirstName
                 tvInnings.text = item.Innings.toString()
                 tvRuns.text = item.Runs.toString()
                 tvAvg.text = String.format("%.2f", item.Average)

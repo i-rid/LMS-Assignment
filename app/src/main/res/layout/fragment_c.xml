@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".view.child_tabs.CFragment">
 
@@ -16,11 +16,11 @@
         android:padding="8dp">
 
         <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_marginHorizontal="4dp"
             android:id="@+id/cbFormerPlayers"
             android:layout_width="28dp"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/lms_primary" />
+            android:layout_marginHorizontal="4dp"
+            android:buttonTint="@color/lms_primary_txt" />
 
         <TextView
             android:id="@+id/tvFormerPlayers"
@@ -33,130 +33,153 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:paddingHorizontal="8dp"
-        android:gravity="center"
-        android:background="@color/lms_primary_bg"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <!-- Name -->
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/lms_primary_dark"
             android:gravity="center"
-            android:text="Name"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/lms_small_text" />
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Overs -->
-        <TextView
-            android:id="@+id/tvOvers"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Overs"
-            android:textColor="@color/lms_primary"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Name -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- Wickets -->
-        <TextView
-            android:id="@+id/tvWickets"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Wkts"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Overs -->
+            <TextView
+                android:id="@+id/tvOvers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Overs"
+                android:textColor="@color/lms_primary_txt"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- Average -->
-        <TextView
-            android:id="@+id/tvAvg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Avg"
-            android:textColor="@color/lms_primary"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Wickets -->
+            <TextView
+                android:id="@+id/tvWickets"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Wkts"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- Economy -->
-        <TextView
-            android:id="@+id/tvEco"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Eco"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Average -->
+            <TextView
+                android:id="@+id/tvAvg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Avg"
+                android:textColor="@color/lms_primary_txt"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- Best -->
-        <TextView
-            android:id="@+id/tvBest"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Best"
-            android:textColor="@color/lms_primary"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Economy -->
+            <TextView
+                android:id="@+id/tvEco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Eco"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- 3fa -->
-        <TextView
-            android:id="@+id/tv3fa"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="3fa"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/lms_small_text" />
+            <!-- Best -->
+            <TextView
+                android:id="@+id/tvBest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Best"
+                android:textColor="@color/lms_primary_txt"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- National Rank -->
-        <TextView
-            android:id="@+id/tvNationalRank"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Nat'l Rnk"
-            android:textColor="@color/lms_primary"
-            android:textSize="11sp" />
+            <!-- 3fa -->
+            <TextView
+                android:id="@+id/tv3fa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="3fa"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/lms_small_text" />
 
-        <!-- World Rank -->
-        <TextView
-            android:id="@+id/tvWorldRank"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Wrld Rnk"
-            android:textColor="@android:color/white"
-            android:textSize="11sp" />
+            <!-- National Rank -->
+            <TextView
+                android:id="@+id/tvNationalRank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Nat'l Rnk"
+                android:textColor="@color/lms_primary_txt"
+                android:textSize="11sp" />
 
-    </LinearLayout>
+            <!-- World Rank -->
+            <TextView
+                android:id="@+id/tvWorldRank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Wrld Rnk"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_triangle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBowling"
-            android:nestedScrollingEnabled="false"
-            tools:listitem="@layout/item_bowling"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_bowling" />
+
         <ProgressBar
             android:id="@+id/progressBar"
-            android:progressTint="@color/lms_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:progressTint="@color/lms_primary_txt" />
     </FrameLayout>
 </LinearLayout>

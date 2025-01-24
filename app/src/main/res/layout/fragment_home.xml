@@ -26,18 +26,19 @@
 
             <!-- Menu Icon (Left) -->
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="start"
-                android:src="@drawable/ic_menu_24" />
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white" />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_gravity="start"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/lms" />
+                android:src="@drawable/lms_white" />
             <!-- Spacer to push items to the right -->
             <Space
                 android:layout_width="0dp"
@@ -46,33 +47,50 @@
 
             <!-- Search Icon (Right) -->
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_search_24" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_msg"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_bell"
+                app:tint="@color/white" />
 
             <!-- Logout Icon (Right) -->
             <ImageView
                 android:id="@+id/btnLogOut"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
-                android:layout_marginStart="8dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/ic_logout_24" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
+            android:layout_marginTop="9dp"
+            app:tabIndicatorFullWidth="true"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:clickable="true"
             android:focusable="true"
+            app:tabSelectedTextAppearance="@style/TabTextAppearance"
             app:tabIndicatorColor="#acc44c"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#CDC5C5" />
-
-
     </LinearLayout>
 
 

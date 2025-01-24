@@ -71,7 +71,7 @@ fun parseBatsmenBowlersAllRounders(str: String): Triple<MutableList<BatsmenBowle
         val batsmenObject = json3.getJSONObject(i)
         val batsmen = BatsmenBowlersAllRounders(
             batsmenObject.getInt("UserId"),
-            batsmenObject.getString("UserName"),
+            batsmenObject.getString("FirstName"),
             batsmenObject.getInt("Nationality"),
             batsmenObject.getString("UserPicture"),
             batsmenObject.getInt("WorldRank"),
@@ -83,7 +83,7 @@ fun parseBatsmenBowlersAllRounders(str: String): Triple<MutableList<BatsmenBowle
         val bowlersObject = json4.getJSONObject(i)
         val bowlers = BatsmenBowlersAllRounders(
             bowlersObject.getInt("UserId"),
-            bowlersObject.getString("UserName"),
+            bowlersObject.getString("FirstName"),
             bowlersObject.getInt("Nationality"),
             bowlersObject.getString("UserPicture"),
             bowlersObject.getInt("WorldRank"),
@@ -95,7 +95,7 @@ fun parseBatsmenBowlersAllRounders(str: String): Triple<MutableList<BatsmenBowle
         val allRoundersObject = json5.getJSONObject(i)
         val allRounders = BatsmenBowlersAllRounders(
             allRoundersObject.getInt("UserId"),
-            allRoundersObject.getString("UserName"),
+            allRoundersObject.getString("FirstName"),
             allRoundersObject.getInt("Nationality"),
             allRoundersObject.getString("UserPicture"),
             allRoundersObject.getInt("WorldRank"),

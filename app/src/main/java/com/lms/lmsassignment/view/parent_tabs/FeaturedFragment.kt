@@ -53,7 +53,7 @@ class FeaturedFragment : Fragment() {
         return  binding.root
     }
 
-    fun setButtonColor(selected: Button, unselected1: Button, unselected2: Button) {
+    private fun setButtonColor(selected: Button, unselected1: Button, unselected2: Button) {
         selected.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary_bg))
         unselected1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary))
         unselected2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.lms_primary))

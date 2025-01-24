@@ -2,7 +2,7 @@ package com.lms.lmsassignment.data.model
 
 data class BattingResponse(
     val UserId: Int,
-    val UserName: String,
+    val FirstName: String,
     val UserPicture: String,
     val PlayerInfo: String,
     val Innings: Int,

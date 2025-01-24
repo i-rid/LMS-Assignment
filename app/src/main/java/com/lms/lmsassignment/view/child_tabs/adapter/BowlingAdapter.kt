@@ -25,7 +25,7 @@ class BowlingAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: BowlingResponse) {
-            binding.tvName.text = item.UserName
+            binding.tvName.text = item.FirstName
             binding.tvOvers.text = item.Overs.toString()
             binding.tvWickets.text = item.Wickets.toString()
             binding.tvAvg.text = item.Average.toString()

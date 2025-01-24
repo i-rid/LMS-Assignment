@@ -23,4 +23,15 @@
         android:label="My LMS"
         tools:layout="@layout/fragment_my_l_m_s" />
 
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.lms.lmsassignment.view.bottom_nav.ShopFragment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.lms.lmsassignment.view.bottom_nav.MoreFragment"
+        android:label="More"
+        tools:layout="@layout/fragment_more" />
 </navigation>

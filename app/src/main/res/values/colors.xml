@@ -4,8 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="selector_bottom_nav">#FFFFFFFF</color>
     <color name="lms_primary">#008977</color>
+    <color name="lms_primary_txt">#08DFA1</color>
     <color name="lms_appbar">#0c7263</color>
     <color name="lms_primary_bg">#0C3539</color>
+    <color name="lms_primary_dark">#0C3539</color>
     <color name="batting_item_text_odd">#25494d</color>
     <color name="batting_item_text_even">#1a9585</color>
 </resources>
