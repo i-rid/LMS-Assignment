@@ -5,7 +5,7 @@
 - Biometric Auth With Session Management (120 Seconds of Inactivity Logs Out From Them App)
 - Implemented Summary Tabs Along With Network Calls & UI
 - Implemented Batting & Bowling Tabs With Network Calls & UI
-- Preserved States Throught Navigation
+- Preserved States Through Out Navigation
 - Handled UI States Like Loading, Loaded & Error While Making Network Calls
 
 ### Stack & Libs
