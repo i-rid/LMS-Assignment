@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginVertical="6dp"
     android:backgroundTint="@android:color/white"
-    app:cardCornerRadius="2dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="5dp"
+    app:strokeColor="@color/lms_primary"
+    app:strokeWidth="1dp">
 
     <!-- Title Section -->
     <TextView
@@ -16,25 +17,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:textColor="@color/lms_primary_bg"
-        android:textSize="28sp"
+        android:layout_marginVertical="10dp"
+        android:textColor="@color/lms_primary_dark"
+        android:textSize="16sp"
         android:textStyle="bold"
         tools:text="Title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28sp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical">
 
 
         <!-- Black Section with Image and TextViews -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="290dp"
+            android:layout_height="120dp"
             android:layout_marginTop="14dp"
-            android:background="@color/lms_primary"
+            android:background="@drawable/bg_top_players"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -42,47 +43,77 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvTopWR"
+                    android:id="@+id/tvTopWR1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    tools:text="Info 1" />
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="World Ranking: 01" />
 
                 <TextView
                     android:id="@+id/tvTopName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    tools:text="Info 2" />
+                    android:textSize="16sp"
+                    tools:text="MUQBIL KHWAJA" />
 
                 <TextView
                     android:id="@+id/tvTopNR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    tools:text="Info 3" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="National Rank: 03" />
 
+                <TextView
+                    android:id="@+id/tvTopWR2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="World Rank: 09" />
             </LinearLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="110dp"
+                android:layout_height="110dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="3dp"
+                    android:elevation="1dp"
+                    android:src="@drawable/ic_australia"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivTopProfile"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/CircularImageView"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="3dp"
+                    tools:src="@tools:sample/avatars" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <!-- Image Section on the Right -->
-            <ImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/circle_background"
-                android:scaleType="centerCrop"
-                tools:src="@drawable/lms" />
         </LinearLayout>
 
 
@@ -118,5 +149,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/white"
+            android:text="SEE FULL LIST -->"
+            android:textColor="@color/lms_primary_dark"
+            android:textSize="16sp"
+            app:cornerRadius="5dp"
+            app:strokeColor="@color/lms_primary"
+            app:strokeWidth="1dp" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

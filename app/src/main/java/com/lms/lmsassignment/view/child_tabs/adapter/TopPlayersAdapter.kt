@@ -27,7 +27,8 @@ class TopPlayersAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopPlayersViewHolder {
-        val binding = ItemTopPlayersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemTopPlayersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TopPlayersViewHolder(binding)
     }
 
@@ -38,35 +39,48 @@ class TopPlayersAdapter(
 
     override fun getItemCount(): Int = 3
 
-    inner class TopPlayersViewHolder(private val binding: ItemTopPlayersBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TopPlayersViewHolder(private val binding: ItemTopPlayersBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(player: BatsmenBowlersAllRounders, position: Int) {
             binding.apply {
                 if (position == 0) {
                     // First item, display Title section
                     tvTitle.text = "Top Batsmen"
-                    tvTopWR.text = "World Rank: ${player.WorldRank}"
+                    tvTopWR1.text = "World Rank: ${player.WorldRank}"
+                    tvTopWR2.text = "World Rank: ${player.WorldRank}"
                     tvTopName.text = player.UserName
                     tvTopNR.text = "National Rank: ${player.NationalRank}"
-                    ivProfile.load(player.UserPicture) {
+                    ivTopProfile.load(player.UserPicture) {
                         crossfade(true)
                         placeholder(R.drawable.lms)
                     }
-                }
-                else if(position == 1){
+
+                    val idList = listOf(
+                        layoutTP2.tvNumber,
+                        layoutTP3.tvNumber,
+                        layoutTP4.tvNumber,
+                        layoutTP5.tvNumber,
+                        layoutTP6.tvNumber,
+                    )
+                    for (i in 1..5) {
+                        idList[i].text = "0${i + 1}"
+                    }
+                } else if (position == 1) {
                     // First item, display Title section
                     tvTitle.text = "Top Bowler"
-                    tvTopWR.text = "World Rank: ${player.WorldRank}"
+                    tvTopWR1.text = "World Rank: ${player.WorldRank}"
+                    tvTopWR2.text = "World Rank: ${player.WorldRank}"
                     tvTopName.text = player.UserName
                     tvTopNR.text = "National Rank: ${player.NationalRank}"
-                    ivProfile.load(player.UserPicture) {
+                    ivTopProfile.load(player.UserPicture) {
                         crossfade(true)
                         placeholder(R.drawable.lms)
                     }
-                }
-                else {
+                } else {
                     tvTitle.text = "All Rounders"
                     // For other players, use the layout with included rows
-                    val playerRowBinding = layoutTP2 // Access the corresponding layout (use `layoutTP3`, etc., for others)
+                    val playerRowBinding =
+                        layoutTP2 // Access the corresponding layout (use `layoutTP3`, etc., for others)
                     playerRowBinding.tvName2.text = player.UserName
                     playerRowBinding.tvRank.text = "Nat/World Rank"
                     playerRowBinding.tvData2.text = "${player.NationalRank}/${player.WorldRank}"

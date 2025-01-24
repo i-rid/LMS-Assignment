@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_top_players_row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
     android:orientation="vertical">
 
     <!-- Section Example -->
@@ -25,19 +25,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="2" />
+            tools:text="02" />
 
-        <ImageView
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearance="@style/CircularImageView"
             android:id="@+id/ivCircularImage2"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/circle_background"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toEndOf="@id/tvNumber"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/lms" />
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvName2"
