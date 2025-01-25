@@ -1,20 +1,27 @@
 package com.lms.lmsassignment.view.child_tabs
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.load
+import com.lms.lmsassignment.R
+import com.lms.lmsassignment.data.model.HonoursAndAwards
 import com.lms.lmsassignment.data.model.RankAndForms
+import com.lms.lmsassignment.data.model.RecentResults
 import com.lms.lmsassignment.data.model.SquadResponse
 import com.lms.lmsassignment.data.model.SummaryResponse
 import com.lms.lmsassignment.data.model.WinsAndLoses
 import com.lms.lmsassignment.databinding.FragmentABinding
 import com.lms.lmsassignment.utils.AppUiState
 import com.lms.lmsassignment.utils.gone
+import com.lms.lmsassignment.utils.toDayDateMonth
 import com.lms.lmsassignment.utils.visible
 import com.lms.lmsassignment.view.child_tabs.adapter.SquadAdapter
 import com.lms.lmsassignment.view.child_tabs.adapter.TopPlayersAdapter
@@ -61,6 +68,9 @@ class AFragment : Fragment() {
 
                     setupWinsAndLosses(data.winsAndLoses)
                     setupRankAndForms(data.rankAndForms)
+                    setupDescription(data.teamAndSponsor.TeamDescription)
+                    setupHonours(data.honoursAndAwards)
+                    setupRecentResults(data.recentResults)
                     videoAdapter.submitList(data.recentVideosList)
 
                     val topPlayersAdapter = TopPlayersAdapter(
@@ -107,6 +117,44 @@ class AFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setupHonours(honoursAndAwards: HonoursAndAwards) {
+        binding.layoutHonours.ivChamps.text = honoursAndAwards.Champion.toString()
+        binding.layoutHonours.ivRunnersUp.text = honoursAndAwards.RunnersUp.toString()
+    }
+    private fun setupRecentResults(recentResults: List<RecentResults>){
+        val idList = listOf(
+            binding.layoutResults.layoutResults1,
+            binding.layoutResults.layoutResults2,
+            binding.layoutResults.layoutResults3,
+            binding.layoutResults.layoutResults4,
+            binding.layoutResults.layoutResults5
+        )
+
+        try {
+            for (index in idList.indices) {
+                idList[index].apply {
+                    tvDate.text = recentResults[index].dateTime.toDayDateMonth()
+                    ivLeft.load(recentResults[index].teamLogo) { placeholder(R.drawable.lms) }
+                    ivRight.load(recentResults[index].oppLogo) { placeholder(R.drawable.lms) }
+                    tvTeamLeft.text = recentResults[index].teamName
+                    tvTeamRight.text = recentResults[index].oppTeamName
+                    tvResult.text = recentResults[index].matchInfo
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        binding.layoutResults.layoutResults1.ivTickLeft.visible()
+        binding.layoutResults.layoutResults2.ivTickRight.visible()
+        binding.layoutResults.layoutResults3.ivTickLeft.visible()
+        binding.layoutResults.layoutResults4.ivTickRight.visible()
+        binding.layoutResults.layoutResults5.ivTickLeft.visible()
+    }
+
+    private fun setupDescription(teamDescription: String) {
+        binding.layoutDesc.tvDesc.text = teamDescription
     }
 
     private fun setupWinsAndLosses(winsAndLoses: WinsAndLoses) {

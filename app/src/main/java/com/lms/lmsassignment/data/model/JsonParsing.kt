@@ -126,9 +126,35 @@ fun parseRecentVideos(str: String): MutableList<RecentVideos> {
     }
     return recentVideosList
 }
-//fun parseHonoursAndAwards(str: String): HonoursAndAwards {
-//
-//}
-//fun parseRecentResults(str: String): List<RecentResults> {
-//
-//}
+fun parseHonoursAndAwards(str: String): HonoursAndAwards {
+    val jsonArray = JSONArray(str) // Parse the entire JSON array
+    // Access Json[6] (First Array)
+    val json0 = jsonArray.getJSONArray(6) // Get the first list
+    val team = json0.getJSONObject(0) // Get the first object in Json[6]
+
+    val champ = team.getInt("Champion")
+    val rUp = team.getInt("RunnersUp")
+    return HonoursAndAwards(champ,rUp)
+}
+
+fun parseRecentResults(str: String): List<RecentResults> {
+    val jsonArray = JSONArray(str) // Parse the entire JSON array
+    val json = jsonArray.getJSONArray(7)
+    val recentResultsList = mutableListOf<RecentResults>()
+
+    for (i in 0 until json.length()) {
+        val recentResultsObject = json.getJSONObject(i)
+        val recentResults = RecentResults(
+            recentResultsObject.getInt("TeamId"),
+            recentResultsObject.getString("TeamName"),
+            recentResultsObject.getString("TeamLogo"),
+            recentResultsObject.getInt("oppoTeamId"),
+            recentResultsObject.getString("oppTeamName"),
+            recentResultsObject.getString("oppLogo"),
+            recentResultsObject.getString("MatchInfo"),
+            recentResultsObject.getString("DateTime")
+        )
+        recentResultsList.add(recentResults)
+    }
+    return recentResultsList
+}

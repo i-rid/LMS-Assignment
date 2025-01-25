@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lms.lmsassignment.data.model.SummaryResponse
 import com.lms.lmsassignment.data.model.parseBatsmenBowlersAllRounders
+import com.lms.lmsassignment.data.model.parseHonoursAndAwards
 import com.lms.lmsassignment.data.model.parseRankAndForms
+import com.lms.lmsassignment.data.model.parseRecentResults
 import com.lms.lmsassignment.data.model.parseRecentVideos
 import com.lms.lmsassignment.data.model.parseTeamAndSponsor
 import com.lms.lmsassignment.data.model.parseWinsAndLoses
@@ -42,6 +44,8 @@ class LMSViewModel:ViewModel() {
                 val rankAndForms = parseRankAndForms(response)
                 val batsmenBowlersAllRounders = parseBatsmenBowlersAllRounders(response)
                 val recentVideosList = parseRecentVideos(response)
+                val honoursAndAwards = parseHonoursAndAwards(response)
+                val recentResultsList = parseRecentResults(response)
 
 
                 val summaryResponse = SummaryResponse(
@@ -51,7 +55,9 @@ class LMSViewModel:ViewModel() {
                     batsmenBowlersAllRounders.first.toList(),
                     batsmenBowlersAllRounders.second.toList(),
                     batsmenBowlersAllRounders.third.toList(),
-                    recentVideosList.toList()
+                    recentVideosList.toList(),
+                    honoursAndAwards,
+                    recentResultsList
                 )
 
                 _summary.value = AppUiState.Loaded(summaryResponse)

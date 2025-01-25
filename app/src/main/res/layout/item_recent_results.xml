@@ -36,12 +36,6 @@
         </FrameLayout>
 
         <include
-            android:id="@+id/layoutResults0"
-            layout="@layout/layout_recent_results_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <include
             android:id="@+id/layoutResults1"
             layout="@layout/layout_recent_results_row"
             android:layout_width="match_parent"
