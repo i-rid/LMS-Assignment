@@ -126,3 +126,9 @@ fun parseRecentVideos(str: String): MutableList<RecentVideos> {
     }
     return recentVideosList
 }
+//fun parseHonoursAndAwards(str: String): HonoursAndAwards {
+//
+//}
+//fun parseRecentResults(str: String): List<RecentResults> {
+//
+//}

@@ -22,6 +22,7 @@
             android:background="@color/white"
             android:backgroundTint="@color/black"
             android:outlineProvider="bounds"
+            android:paddingTop="84dp"
             android:scaleType="centerCrop"
             android:src="@drawable/fg_recent_videos" />
 
