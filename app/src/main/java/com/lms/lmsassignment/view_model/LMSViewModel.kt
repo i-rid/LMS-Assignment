@@ -70,7 +70,7 @@ class LMSViewModel:ViewModel() {
             try {
                 val response = apiService.getSquadList(typeId, teamId)
                 _squadList.value = AppUiState.Loaded(response)
-                Log.d("SquadNetCall","SquadNetCall: ${response[0].UserName}")
+                Log.d("SquadNetCall","SquadNetCall: ${response[0].FirstName}")
             } catch (e: Exception){
                 _squadList.value = AppUiState.Error(e.message ?: "Unknown Error")
                 Log.d("SquadNetCall","Error: ${e.message}")

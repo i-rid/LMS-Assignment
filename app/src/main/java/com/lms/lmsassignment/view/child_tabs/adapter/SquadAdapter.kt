@@ -28,7 +28,7 @@ class SquadAdapter : ListAdapter<SquadResponse, SquadAdapter.SquadViewHolder>(Sq
         fun bind(item: SquadResponse) {
             binding.apply {
                 // Set the title
-                tvTitle.text = item.UserName
+                tvTitle.text = item.FirstName
 
                 // Parse PlayerInfo and assign to TextViews
                 if (item.PlayerInfo.equals("N/A", ignoreCase = true)) {

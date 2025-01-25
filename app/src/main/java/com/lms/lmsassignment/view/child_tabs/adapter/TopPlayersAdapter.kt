@@ -43,50 +43,114 @@ class TopPlayersAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(player: BatsmenBowlersAllRounders, position: Int) {
             binding.apply {
-                if (position == 0) {
-                    // First item, display Title section
-                    tvTitle.text = "Top Batsmen"
-                    tvTopWR1.text = "World Rank: ${player.WorldRank}"
-                    tvTopWR2.text = "World Rank: ${player.WorldRank}"
-                    tvTopName.text = player.UserName
-                    tvTopNR.text = "National Rank: ${player.NationalRank}"
-                    ivTopProfile.load(player.UserPicture) {
-                        crossfade(true)
-                        placeholder(R.drawable.lms)
+
+                when (position) {
+                    0 -> {
+                        val playerBatsmen = batsmenList[0]
+                        // First item, display Title section
+                        tvTitle.text = "Top Batsmen"
+                        tvTopWR1.text = "World Rank: ${playerBatsmen.WorldRank}"
+                        tvTopWR2.text = "World Rank: ${playerBatsmen.WorldRank}"
+                        tvTopName.text = playerBatsmen.UserName
+                        tvTopNR.text = "National Rank: ${playerBatsmen.NationalRank}"
+                        ivTopProfile.load(playerBatsmen.UserPicture) {
+                            crossfade(true)
+                            placeholder(R.drawable.ic_profile)
+                        }
+
+                        val rest = batsmenList.drop(1)
+                        val idList = listOf(
+                            layoutTP2,
+                            layoutTP3,
+                            layoutTP4,
+                            layoutTP5,
+                            layoutTP6,
+                        )
+                        try {
+                            for (index in idList.indices) {
+                                idList[index].tvNumber.text = "0${index + 2}"
+
+                                idList[index].tvName2.text = rest[index].UserName
+                                idList[index].ivImage2.load(rest[index].UserPicture) { placeholder(R.drawable.ic_profile) }
+                                idList[index].tvData2.text =
+                                    rest[index].NationalRank.toString() + "/" + rest[index].WorldRank.toString()
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+
                     }
 
-                    val idList = listOf(
-                        layoutTP2.tvNumber,
-                        layoutTP3.tvNumber,
-                        layoutTP4.tvNumber,
-                        layoutTP5.tvNumber,
-                        layoutTP6.tvNumber,
-                    )
-                    for (i in 1..5) {
-                        idList[i].text = "0${i + 1}"
+                    1 -> {
+                        val playerBowler = bowlersList[0]
+                        val rest = bowlersList.drop(1)
+                        // First item, display Title section
+                        tvTitle.text = "Top Bowler"
+                        tvTopWR1.text = "World Rank: ${playerBowler.WorldRank}"
+                        tvTopWR2.text = "World Rank: ${playerBowler.WorldRank}"
+                        tvTopName.text = playerBowler.UserName
+                        tvTopNR.text = "National Rank: ${playerBowler.NationalRank}"
+                        ivTopProfile.load(playerBowler.UserPicture) {
+                            crossfade(true)
+                            placeholder(R.drawable.ic_profile)
+                        }
+
+                        val idList = listOf(
+                            layoutTP2,
+                            layoutTP3,
+                            layoutTP4,
+                            layoutTP5,
+                            layoutTP6,
+                        )
+                        try {
+                            for (index in idList.indices) {
+                                idList[index].tvNumber.text = "0${index + 2}"
+
+                                idList[index].tvName2.text = rest[index].UserName
+                                idList[index].ivImage2.load(rest[index].UserPicture) { placeholder(R.drawable.ic_profile) }
+                                idList[index].tvData2.text =
+                                    rest[index].NationalRank.toString() + "/" + rest[index].WorldRank.toString()
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+
                     }
-                } else if (position == 1) {
-                    // First item, display Title section
-                    tvTitle.text = "Top Bowler"
-                    tvTopWR1.text = "World Rank: ${player.WorldRank}"
-                    tvTopWR2.text = "World Rank: ${player.WorldRank}"
-                    tvTopName.text = player.UserName
-                    tvTopNR.text = "National Rank: ${player.NationalRank}"
-                    ivTopProfile.load(player.UserPicture) {
-                        crossfade(true)
-                        placeholder(R.drawable.lms)
-                    }
-                } else {
-                    tvTitle.text = "All Rounders"
-                    // For other players, use the layout with included rows
-                    val playerRowBinding =
-                        layoutTP2 // Access the corresponding layout (use `layoutTP3`, etc., for others)
-                    playerRowBinding.tvName2.text = player.UserName
-                    playerRowBinding.tvRank.text = "Nat/World Rank"
-                    playerRowBinding.tvData2.text = "${player.NationalRank}/${player.WorldRank}"
-                    playerRowBinding.ivCircularImage2.load(player.UserPicture) {
-                        crossfade(true)
-                        placeholder(R.drawable.lms)
+
+                    else -> {
+                        val playerAR = allRoundersList[0]
+                        val rest = allRoundersList.drop(1)
+
+                        tvTitle.text = "All Rounders"
+                        tvTopWR1.text = "World Rank: ${playerAR.WorldRank}"
+                        tvTopWR2.text = "World Rank: ${playerAR.WorldRank}"
+                        tvTopName.text = playerAR.UserName
+                        tvTopNR.text = "National Rank: ${playerAR.NationalRank}"
+                        ivTopProfile.load(playerAR.UserPicture) {
+                            crossfade(true)
+                            placeholder(R.drawable.ic_profile)
+                        }
+
+                        val idList = listOf(
+                            layoutTP2,
+                            layoutTP3,
+                            layoutTP4,
+                            layoutTP5,
+                            layoutTP6,
+                        )
+                        try {
+                            for (index in idList.indices) {
+                                idList[index].tvNumber.text = "0${index + 2}"
+
+                                idList[index].tvName2.text = rest[index].UserName
+                                idList[index].ivImage2.load(rest[index].UserPicture) { placeholder(R.drawable.ic_profile) }
+                                idList[index].tvData2.text =
+                                    rest[index].NationalRank.toString() + "/" + rest[index].WorldRank.toString()
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+
                     }
                 }
             }

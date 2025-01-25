@@ -2,11 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+
+    android:layout_marginHorizontal="6dp"
+    app:cardCornerRadius="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,8 +16,8 @@
         <!-- Image View -->
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="260dp"
+            android:layout_height="250dp"
             android:background="@color/white"
             android:clipToOutline="true"
             android:outlineProvider="bounds"
@@ -26,9 +26,9 @@
 
         <!-- Text Views -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_squad"
+            android:layout_width="260dp"
+            android:layout_height="106dp"
             android:gravity="start"
             android:orientation="vertical"
             android:padding="16dp">
@@ -38,8 +38,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textColor="@color/lms_primary_dark"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:text="Title" />
 
@@ -49,16 +49,18 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/lms_primary"
+                android:layout_marginTop="5dp"
                 android:textSize="14sp"
                 tools:text="Age: 25" />
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:id="@+id/tvPInfo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/lms_primary"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:text="Designation" />
         </LinearLayout>
 

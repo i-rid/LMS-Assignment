@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_top_players_row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_top_players_row"
     android:orientation="vertical">
 
     <!-- Section Example -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvNumber"
@@ -20,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,45 +27,60 @@
 
 
         <com.google.android.material.imageview.ShapeableImageView
-            app:shapeAppearance="@style/CircularImageView"
-            android:id="@+id/ivCircularImage2"
+            android:id="@+id/ivImage2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="12dp"
             android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvNumber"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/CircularImageView"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/tvName2"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Umair Nasir"
-            android:textColor="@color/lms_primary_bg"
-            android:textSize="18sp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivCircularImage2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/ivImage2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lms_primary_dark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Umair Nasir" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_australia_rec" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/tvRanks2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30sp"
+            android:layout_marginEnd="12dp"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tvRank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nat/World Rank"
-                android:textColor="@color/lms_primary_bg"
-                android:textSize="14sp" />
+                android:text="NAT/WRLD RANK"
+                android:textColor="#95B1A8"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvData2"
@@ -75,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:textColor="@color/lms_primary"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="11/12" />
         </LinearLayout>

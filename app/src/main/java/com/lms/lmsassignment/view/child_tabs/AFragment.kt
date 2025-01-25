@@ -8,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lms.lmsassignment.R
 import com.lms.lmsassignment.data.model.RankAndForms
 import com.lms.lmsassignment.data.model.SquadResponse
 import com.lms.lmsassignment.data.model.SummaryResponse
-import com.lms.lmsassignment.data.model.TeamAndSponsor
 import com.lms.lmsassignment.data.model.WinsAndLoses
 import com.lms.lmsassignment.databinding.FragmentABinding
 import com.lms.lmsassignment.utils.AppUiState
@@ -99,7 +97,7 @@ class AFragment : Fragment() {
                     val data = it.data as List<SquadResponse>
 
                     squadAdapter.submitList(data.take(3))
-                    Log.d("AFragment","Loaded..Squad ${data[0].UserName}")
+                    Log.d("AFragment","Loaded..Squad ${data[0].FirstName}")
                     binding.squadProgressBar.gone()
                 }
                 is AppUiState.Error ->{
