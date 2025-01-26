@@ -17,6 +17,7 @@ import com.lms.lmsassignment.data.model.RankAndForms
 import com.lms.lmsassignment.data.model.RecentResults
 import com.lms.lmsassignment.data.model.SquadResponse
 import com.lms.lmsassignment.data.model.SummaryResponse
+import com.lms.lmsassignment.data.model.UpComingFixturesResponse
 import com.lms.lmsassignment.data.model.WinsAndLoses
 import com.lms.lmsassignment.databinding.FragmentABinding
 import com.lms.lmsassignment.utils.AppUiState
@@ -40,7 +41,7 @@ class AFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentABinding.inflate(inflater, container, false)
-        return  binding.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,11 +49,12 @@ class AFragment : Fragment() {
 
         binding.rvSquadList.adapter = squadAdapter
         binding.rvVideos.adapter = videoAdapter
-        binding.rvSquadList.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+        binding.rvSquadList.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvVideos.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.summary.observe(viewLifecycleOwner){
-            when(it){
+        viewModel.summary.observe(viewLifecycleOwner) {
+            when (it) {
                 is AppUiState.Loading -> {
                     binding.layoutBigCards.gone()
                     binding.layoutSmallCards.gone()
@@ -61,6 +63,7 @@ class AFragment : Fragment() {
                     Log.d("AFragment", "Loading..SumNCall")
 
                 }
+
                 is AppUiState.Loaded -> {
                     Log.d("AFragment", "Loaded..SumNCall")
                     val data = it.data as SummaryResponse
@@ -71,6 +74,7 @@ class AFragment : Fragment() {
                     setupDescription(data.teamAndSponsor.TeamDescription)
                     setupHonours(data.honoursAndAwards)
                     setupRecentResults(data.recentResults)
+                    setupUpComingFix(data.upComingFixturesList)
                     videoAdapter.submitList(data.recentVideosList)
 
                     val topPlayersAdapter = TopPlayersAdapter(
@@ -79,11 +83,13 @@ class AFragment : Fragment() {
                         data.allRoundersList
                     )
                     binding.rvTopPlayers.adapter = topPlayersAdapter
-                    binding.rvTopPlayers.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+                    binding.rvTopPlayers.layoutManager =
+                        LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
                     binding.videoProgressBar.gone()
                     binding.playersProgressBar.gone()
                 }
+
                 is AppUiState.Error -> {
                     binding.layoutBigCards.gone()
                     binding.layoutSmallCards.gone()
@@ -95,35 +101,67 @@ class AFragment : Fragment() {
                 }
             }
         }
-        viewModel.squadList.observe(viewLifecycleOwner){
-            when(it){
-                is AppUiState.Loading ->{
+        viewModel.squadList.observe(viewLifecycleOwner) {
+            when (it) {
+                is AppUiState.Loading -> {
                     binding.squadProgressBar.visible()
-                    Log.d("AFragment","Loading..Squad")
+                    Log.d("AFragment", "Loading..Squad")
                 }
-                is AppUiState.Loaded ->{
-                    Log.d("AFragment","Loaded..Squad")
+
+                is AppUiState.Loaded -> {
+                    Log.d("AFragment", "Loaded..Squad")
 
                     val data = it.data as List<SquadResponse>
 
                     squadAdapter.submitList(data.take(3))
-                    Log.d("AFragment","Loaded..Squad ${data[0].FirstName}")
+                    Log.d("AFragment", "Loaded..Squad ${data[0].FirstName}")
                     binding.squadProgressBar.gone()
                 }
-                is AppUiState.Error ->{
-                    Log.d("AFragment","Error..Squad")
-                    Log.d("AFragment","Error..${it.message}")
+
+                is AppUiState.Error -> {
+                    Log.d("AFragment", "Error..Squad")
+                    Log.d("AFragment", "Error..${it.message}")
                     binding.squadProgressBar.gone()
                 }
             }
         }
     }
 
+    private fun setupUpComingFix(upComingFixturesList: List<UpComingFixturesResponse>) {
+        val idList = listOf(
+            binding.layoutUpComingFix.layoutUpComingFix1,
+            binding.layoutUpComingFix.layoutUpComingFix2,
+            binding.layoutUpComingFix.layoutUpComingFix3,
+            binding.layoutUpComingFix.layoutUpComingFix4,
+            binding.layoutUpComingFix.layoutUpComingFix5
+        )
+
+        try {
+            for (index in idList.indices) {
+                idList[index].apply {
+                    tvDate.text = upComingFixturesList[index].dateTime.toDayDateMonth()
+                    ivLeft.load(upComingFixturesList[index].teamLogo) { placeholder(R.drawable.lms) }
+                    ivRight.load(upComingFixturesList[index].oppLogo) { placeholder(R.drawable.lms) }
+                    tvTeamLeft.text = upComingFixturesList[index].teamName
+                    tvTeamRight.text = upComingFixturesList[index].oppTeamName
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        binding.layoutUpComingFix.layoutUpComingFix1.ivTickLeft.visible()
+        binding.layoutUpComingFix.layoutUpComingFix2.ivTickRight.visible()
+        binding.layoutUpComingFix.layoutUpComingFix3.ivTickLeft.visible()
+        binding.layoutUpComingFix.layoutUpComingFix4.ivTickRight.visible()
+        binding.layoutUpComingFix.layoutUpComingFix5.ivTickLeft.visible()
+    }
+
     private fun setupHonours(honoursAndAwards: HonoursAndAwards) {
         binding.layoutHonours.ivChamps.text = honoursAndAwards.Champion.toString()
         binding.layoutHonours.ivRunnersUp.text = honoursAndAwards.RunnersUp.toString()
     }
-    private fun setupRecentResults(recentResults: List<RecentResults>){
+
+    private fun setupRecentResults(recentResults: List<RecentResults>) {
         val idList = listOf(
             binding.layoutResults.layoutResults1,
             binding.layoutResults.layoutResults2,
@@ -168,6 +206,7 @@ class AFragment : Fragment() {
         binding.layoutBigCards3.tvValue.text = winsAndLoses.Wins.toString()
         binding.layoutBigCards4.tvValue.text = winsAndLoses.Loses.toString()
     }
+
     private fun setupRankAndForms(rankAndForms: RankAndForms) {
         binding.layoutSmallCards.visible()
         binding.layoutSmallCards1.tvTitle.text = "City Rank:"

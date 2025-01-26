@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_top_players_row"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="6dp"
+        android:textColor="@color/lms_primary_dark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Saturday 05 October" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp">
+
+            <ImageView
+                android:id="@+id/ivTickLeft"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:elevation="1dp"
+                android:src="@drawable/ic_green_tick"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivLeft"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/CircularImageView"
+                app:strokeColor="@color/lms_primary_txt"
+                app:strokeWidth="1dp"
+                tools:src="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="20sp"
+            android:text="VS"
+            android:textColor="@color/lms_primary_txt"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp">
+
+            <ImageView
+                android:id="@+id/ivTickRight"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:elevation="1dp"
+
+                android:src="@drawable/ic_green_tick"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivRight"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/CircularImageView"
+                app:strokeColor="@color/lms_primary_txt"
+                app:strokeWidth="1dp"
+                tools:src="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTeamLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="@color/lms_primary_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Divine Fighter" />
+
+        <TextView
+            android:id="@+id/tvTeamRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textColor="@color/lms_primary_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Sandton Royals" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/lms_primary_txt"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:text="View match info" />
+</LinearLayout>

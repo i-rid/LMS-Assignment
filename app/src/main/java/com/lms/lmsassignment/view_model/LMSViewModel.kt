@@ -12,6 +12,7 @@ import com.lms.lmsassignment.data.model.parseRankAndForms
 import com.lms.lmsassignment.data.model.parseRecentResults
 import com.lms.lmsassignment.data.model.parseRecentVideos
 import com.lms.lmsassignment.data.model.parseTeamAndSponsor
+import com.lms.lmsassignment.data.model.parseUpComingFixtures
 import com.lms.lmsassignment.data.model.parseWinsAndLoses
 import com.lms.lmsassignment.data.remote.api.ApiService
 import com.lms.lmsassignment.utils.AppUiState
@@ -46,6 +47,7 @@ class LMSViewModel:ViewModel() {
                 val recentVideosList = parseRecentVideos(response)
                 val honoursAndAwards = parseHonoursAndAwards(response)
                 val recentResultsList = parseRecentResults(response)
+                val upComingFixturesList = parseUpComingFixtures(response)
 
 
                 val summaryResponse = SummaryResponse(
@@ -57,7 +59,8 @@ class LMSViewModel:ViewModel() {
                     batsmenBowlersAllRounders.third.toList(),
                     recentVideosList.toList(),
                     honoursAndAwards,
-                    recentResultsList
+                    recentResultsList,
+                    upComingFixturesList
                 )
 
                 _summary.value = AppUiState.Loaded(summaryResponse)

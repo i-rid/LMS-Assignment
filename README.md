@@ -49,18 +49,32 @@
 <table style="width:100%">
     <tr>
     <th>Summary Tab</th>
-    <th>Squad List</th> 
-    <th>Recent Videos</th>
-    <th>Top Players</th>
+    <th>Top Players</th> 
+    <th>Recent Results</th>
+    <th>Upcoming Fixtures</th>
     </tr>
     <tr>
-    <td><img src = "ss/home1.jpeg" width=240/></td> 
+    <td><img src = "ss/home1.png" width=240/></td> 
     <td><img src = "ss/home2.png" width=240/></td> 
     <td><img src = "ss/home3.png" width=240/></td>
     <td><img src = "ss/home4.png" width=240/></td>
   </tr>
 </table>
 
+<table style="width:100%">
+    <tr>
+    <th>Squad List</th>
+    <th>Recent Videos</th> 
+    <th>Description</th>
+    <th>Honours & Awards</th>
+    </tr>
+    <tr>
+    <td><img src = "ss/home5.png" width=240/></td> 
+    <td><img src = "ss/home6.png" width=240/></td> 
+    <td><img src = "ss/home7.png" width=240/></td>
+    <td><img src = "ss/home7.png" width=240/></td>
+  </tr>
+</table>
 ## 📂 MVVV - Project Structure
 
 Here’s an overview of the project structure:

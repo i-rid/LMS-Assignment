@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginHorizontal="12dp"
-        android:background="@color/lms_primary_dark" />
+        android:background="#A6D1C4" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginHorizontal="12dp"
-        android:background="@color/lms_primary_dark" />
+        android:background="#A6D1C4" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"

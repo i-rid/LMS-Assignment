@@ -141,6 +141,7 @@
                 android:id="@+id/tvWorldRank"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Wrld Rnk"
@@ -148,6 +149,7 @@
                 android:textSize="11sp" />
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/ivArrow"
             android:layout_width="12dp"

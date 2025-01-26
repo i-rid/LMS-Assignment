@@ -9,7 +9,8 @@ data class SummaryResponse (
     val allRoundersList: List<BatsmenBowlersAllRounders>,
     val recentVideosList: List<RecentVideos>,
     val honoursAndAwards: HonoursAndAwards,
-    val recentResults: List<RecentResults>
+    val recentResults: List<RecentResults>,
+    val upComingFixturesList : List<UpComingFixturesResponse>
 )
 
 data class TeamAndSponsor(

@@ -158,3 +158,24 @@ fun parseRecentResults(str: String): List<RecentResults> {
     }
     return recentResultsList
 }
+
+fun parseUpComingFixtures(str: String): List<UpComingFixturesResponse> {
+    val jsonArray = JSONArray(str) // Parse the entire JSON array
+    val json = jsonArray.getJSONArray(8)
+    val upComingFixturesList = mutableListOf<UpComingFixturesResponse>()
+
+    for (i in 0 until json.length()) {
+        val upComingFixturesObject = json.getJSONObject(i)
+        val upComingFixtures = UpComingFixturesResponse(
+            upComingFixturesObject.getInt("TeamId"),
+            upComingFixturesObject.getString("TeamName"),
+            upComingFixturesObject.getString("TeamLogo"),
+            upComingFixturesObject.getInt("oppoTeamId"),
+            upComingFixturesObject.getString("oppTeamName"),
+            upComingFixturesObject.getString("oppLogo"),
+            upComingFixturesObject.getString("DateTime")
+        )
+        upComingFixturesList.add(upComingFixtures)
+    }
+    return upComingFixturesList
+}

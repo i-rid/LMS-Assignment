@@ -4,11 +4,11 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:paddingHorizontal="8dp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
 
         <!-- Name -->
         <TextView
@@ -17,9 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:lineBreakStyle="none"
             android:maxLength="5"
             android:text="Name"
-            android:lineBreakStyle="none"
             android:textColor="@color/batting_item_text_odd"
             android:textSize="@dimen/lms_small_text" />
 
@@ -105,6 +105,7 @@
             android:id="@+id/tvWorldRank"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Wrld Rnk"
